@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Hermoshita ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosa: #ff4d6d;
+            --fondo: #0f0c29;
+            --oro: #ffd700;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: var(--fondo);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* PORTADA CINEMÁTICA */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(15, 12, 41, 0.7), rgba(48, 43, 99, 0.4)), url('foto1.jpg');
+            background-size: cover;
+            background-position: center;
+            animation: zoomLento 20s infinite alternate;
+            z-index: -1;
+        }
+
+        @keyframes zoomLento {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(4rem, 12vw, 6.5rem);
+            color: white;
+            text-shadow: 0 0 30px var(--rosa);
+            margin: 0;
+            animation: aparecerBrillo 2s ease-out;
+        }
+
+        /* Estrellas */
+        .estrella { position: fixed; background: white; border-radius: 50%; opacity: 0.5; animation: parpadeo infinite alternate; z-index: -1; }
+        @keyframes parpadeo { from { opacity: 0.2; } to { opacity: 1; } }
+
+        /* Secciones */
+        .seccion { padding: 80px 20px; }
+        .barra-ext { width: 85%; max-width: 450px; height: 25px; background: rgba(255,255,255,0.1); border-radius: 20px; margin: 25px auto; border: 2px solid var(--rosa); box-shadow: 0 0 15px var(--rosa); overflow: visible; }
+        .barra-int { width: 0%; height: 100%; background: var(--rosa); border-radius: 20px; transition: width 0.1s; }
+
+        /* Galería Ica */
+        .galeria-ica { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; max-width: 1200px; margin: 40px auto; }
+        .polaroid { background: white; padding: 12px 12px 35px 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: 0.4s; flex: 1 1 300px; max-width: 320px; }
+        .polaroid img { width: 100%; height: 280px; object-fit: cover; border-radius: 2px; }
+        .polaroid p { font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: #333; margin: 15px 0 0; }
+        .polaroid:hover { transform: scale(1.05) rotate(0deg) !important; z-index: 10; }
+
+        /* Botones */
+        .btn { background: var(--rosa); color: white; border: none; padding: 18px 35px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 1.1rem; box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4); transition: 0.3s; }
+        .btn:hover { background: #ff758c; transform: translateY(-3px); }
+        #btn-no { position: absolute; transition: 0.1s; }
+
+        /* Carta */
+        .sobre-box { margin: 60px auto; cursor: pointer; transition: 0.4s; display: inline-block; }
+        .sobre-box:hover { transform: scale(1.15); filter: drop-shadow(0 0 25px var(--rosa)); }
+
+        .carta { 
+            display: none; max-width: 550px; margin: 40px auto; background: #fff; padding: 45px; 
+            border-radius: 8px; color: #222; text-align: left; line-height: 1.8;
+            box-shadow: 0 0 80px rgba(0,0,0,0.5); border-top: 10px solid var(--rosa);
+        }
+
+        .firma-final { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--rosa); text-align: center; margin-top: 40px; }
+
+        .particula { position: absolute; pointer-events: none; z-index: 1000; animation: subir 1.5s ease-out forwards; }
+        @keyframes subir { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-200px) scale(2); opacity: 0; } }
+    </style>
+</head>
+<body onclick="soltarEmoji(event, '❤️')">
+
+    <script>
+        for (let i = 0; i < 120; i++) {
+            let e = document.createElement('div');
+            e.className = 'estrella';
+            e.style.width = e.style.height = Math.random() * 3 + 'px';
+            e.style.top = Math.random() * 100 + 'vh'; e.style.left = Math.random() * 100 + 'vw';
+            document.body.appendChild(e);
+        }
+    </script>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <h1>Hola Hermoshita ❤️</h1>
+        <p style="font-size: 1.3rem; opacity: 0.9; margin-top: 15px;">Mela, eres lo más lindo de mi mundo</p>
+        <button class="btn" style="margin-top: 30px;" onclick="document.getElementById('reproductor').scrollIntoView({behavior:'smooth'})">Empezar el viaje ✨</button>
+    </section>
+
+    <section id="reproductor" class="seccion" style="background: rgba(255,255,255,0.03);">
+        <h2 style="font-family: 'Dancing Script'; font-size: 2.5rem; color: var(--rosa);">Nivel de mi amor por ti</h2>
+        <div class="barra-ext"><div id="barra" class="barra-int"></div></div>
+        <button class="btn" onclick="llenarMelaMetro()">Calcular Amor</button>
+        <p id="status-amor" style="font-weight: bold; margin-top: 15px; min-height: 24px;"></p>
+        
+        <div style="margin-top: 60px;">
+            <p>Escucha esta canción que te creé (mi primera vez jeje):</p>
+            <audio controls src="cancion.mp3" style="filter: invert(1); width: 80%; max-width: 400px;"></audio>
+        </div>
+    </section>
+
+    <section class="seccion">
+        <h2 style="font-family: 'Dancing Script'; font-size: 3.5rem; margin-bottom: 40px;">Recuerdos en Ica 🐪</h2>
+        <div class="galeria-ica">
+            <div class="polaroid" style="transform: rotate(-3deg);"><img src="Ica1.jpg"><p>Tratando de posar para la foto 🏎️</p></div>
+            <div class="polaroid" style="transform: rotate(2deg);"><img src="Ica2.jpg"><p>Cuando éramos musulmanes 😍</p></div>
+            <div class="polaroid" style="transform: rotate(-1deg);"><img src="Ica3.jpg"><p>Lo más hermoso de esta foto eres tú ✨</p></div>
+        </div>
+    </section>
+
+    <section style="height: 450px; padding-top: 100px; position: relative;">
+        <h2 style="font-family: 'Dancing Script'; font-size: 2.8rem;">Pregunta para Hermoshita... <br> ¿Soy el más guapo del mundo? 😎</h2>
+        <button class="btn" onclick="alert('¡Sabía que dirías que sí! ❤️'); lluviaEmoji('💖')">SÍ, OBVIO</button>
+        <button class="btn" id="btn-no" onmouseover="escapar()">Nop</button>
+    </section>
+
+    <section class="seccion" style="background: rgba(0,0,0,0.2);">
+        <h2 style="font-family: 'Dancing Script'; font-size: 2.2rem; color: var(--oro);">Tienes una carta final...</h2>
+        <div class="sobre-box" onclick="abrirCarta()">
+            <div style="font-size: 110px;">💌</div>
+            <p style="font-weight: bold; color: var(--rosa); letter-spacing: 2px;">ÁBREME</p>
+        </div>
+
+        <div id="carta" class="carta">
+            <h3 style="font-family: 'Dancing Script'; color: var(--rosa); font-size: 2.4rem; margin-top: 0;">Hermoshita,</h3>
+            <p>Te amo tantísimo. Quería decirte que es la primera vez que creo una canción; la verdad no se me da mucho esto, pero la hice con todo mi amor para ti.</p>
+            <p>Espero que este detallito te haga sonreír tanto como tú me haces sonreír a mí, desde nuestras locuras en Ica hasta el día a día.</p>
+            <p style="margin-top: 25px;">Te amo muchísimo,</p>
+            <p style="font-weight: bold;">Gabriel</p>
+            <div class="firma-final">Eres mi persona favorita</div>
+        </div>
+    </section>
+
+    <script>
+        function soltarEmoji(e, emoji) {
+            const p = document.createElement('div');
+            p.innerHTML = emoji; p.className = 'particula';
+            p.style.left = (e.pageX || e.clientX) + 'px';
+            p.style.top = (e.pageY || e.clientY) + 'px';
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 1500);
+        }
+
+        function lluviaEmoji(emoji) {
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const e = { clientX: Math.random() * window.innerWidth, clientY: window.innerHeight - 50 };
+                    soltarEmoji(e, emoji);
+                }, i * 60);
+            }
+        }
+
+        function llenarMelaMetro() {
+            let b = document.getElementById('barra');
+            let s = document.getElementById('status-amor');
+            let w = 0;
+            let int = setInterval(() => {
+                w++; b.style.width = w + '%';
+                s.innerHTML = w + "%";
+                if(w >= 140) {
+                    clearInterval(int);
+                    s.innerHTML = "¡ERROR! Mi amor por ti sobrepasó los límites 💥❤️";
+                    s.style.color = "#ff4d6d";
+                    lluviaEmoji('❤️');
+                }
+            }, 30);
+        }
+
+        function escapar() {
+            const btn = document.getElementById('btn-no');
+            btn.style.left = Math.random() * 80 + '%';
+            btn.style.top = Math.random() * 300 + 'px';
+        }
+
+        function abrirCarta() {
+            document.getElementById('carta').style.display = 'block';
+            lluviaEmoji('✨');
+            window.scrollBy({ top: 450, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
